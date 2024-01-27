@@ -1,7 +1,9 @@
 import * as Tone from "tone";
 import * as dat from "dat.gui";
+import { ChordMap } from "./chordMap";
 
 const gui = new dat.GUI();
+
 // import { Chord, Note, Interval } from "tonal";
 
 const sampler = new Tone.Sampler({
@@ -15,20 +17,20 @@ const sampler = new Tone.Sampler({
   baseUrl: "https://tonejs.github.io/audio/salamander/",
 }).toDestination();
 
-const sound = { duration: 0.2 };
+const sound = { duration: 0.8, delay: 0.1 };
 gui.add(sound, "duration", 0.2, 5);
+gui.add(sound, "delay", 0.2, 1);
 
 function playChord(chord: string) {
-  const notes = ["E2", "B2", "E3", "G#3", "B3", "E4"];
   const now = Tone.now();
+  const notes = ChordMap[chord];
 
-  console.log(chord);
-  // Loop through the notes and play them with a delay
-  let delay = 0.5;
-
-  notes.forEach((note) => {
-    // synth.triggerAttackRelease(note, soundLength, now + index * soundLength);
-    sampler.triggerAttackRelease(note, sound.duration, now + delay);
+  notes.forEach((note, index) => {
+    sampler.triggerAttackRelease(
+      note,
+      sound.duration,
+      now + index * sound.delay,
+    );
   });
 }
 
