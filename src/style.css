@@ -1,0 +1,23 @@
+body {
+  /* TODO: font*/
+  font-family: "Roobert","Inter","Helvetica Neue","Helvetica","Arial",sans-serif;;
+  background-color: rgba(245, 245, 220, 0.55);
+}
+main {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+
+.jtab {
+  height:218px;
+}
+.jtab.chordonly {
+  height:118px;
+}
+.jtab.tabonly {
+  height:100px;
+}

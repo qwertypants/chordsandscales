@@ -1,0 +1,22 @@
+{
+  "name": "guitarai",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/dat.gui": "^0.7.12",
+    "@types/jquery": "^3.5.29",
+    "prettier": "^3.2.4",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "tonal": "^5.2.0",
+    "tone": "next"
+  }
+}
