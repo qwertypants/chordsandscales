@@ -4,22 +4,23 @@ body {
   background-color: rgba(245, 245, 220, 0.55);
 }
 
-#chords, #tabs {
+#chords, #scales {
   max-width: 30rem
 }
 
 #chords {
-  margin: 2rem auto;
-  padding: 0 1rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#tabs {
   margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#scales {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
