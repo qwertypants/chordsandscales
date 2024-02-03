@@ -17,19 +17,21 @@ const sampler = new Tone.Sampler({
   baseUrl: "https://tonejs.github.io/audio/salamander/",
 }).toDestination();
 
-const sound = { duration: 0.8, delay: 0.1 };
+const sound = { duration: 0.8, time: 0.1 };
 gui.add(sound, "duration", 0.2, 5);
-gui.add(sound, "delay", 0.2, 1);
+gui.add(sound, "time", 0.2, 1);
 
 function playChord(chord: string) {
   const now = Tone.now();
   const notes = ChordMap[chord];
 
+  // TODO: Stop currently playing sound
+
   notes.forEach((note, index) => {
     sampler.triggerAttackRelease(
       note,
       sound.duration,
-      now + index * sound.delay,
+      now + index * sound.time,
     );
   });
 }
