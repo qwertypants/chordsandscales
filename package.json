@@ -17,6 +17,7 @@
   "dependencies": {
     "dat.gui": "^0.7.9",
     "tonal": "^5.2.1",
-    "tone": "next"
+    "tone": "next",
+    "tonejs-instrument-guitar-nylon-ogg": "^1.1.0"
   }
 }

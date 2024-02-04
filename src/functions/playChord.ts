@@ -1,21 +1,11 @@
 import * as Tone from "tone";
 import * as dat from "dat.gui";
+import GuitarNylonOgg from "tonejs-instrument-guitar-nylon-ogg";
 import { ChordMap } from "./chordMap";
 
+const guitar = new GuitarNylonOgg().toDestination();
+
 const gui = new dat.GUI();
-
-// import { Chord, Note, Interval } from "tonal";
-
-const sampler = new Tone.Sampler({
-  urls: {
-    C4: "C4.mp3",
-    "D#4": "Ds4.mp3",
-    "F#4": "Fs4.mp3",
-    A4: "A4.mp3",
-  },
-  release: 1,
-  baseUrl: "https://tonejs.github.io/audio/salamander/",
-}).toDestination();
 
 const sound = { duration: 0.8, time: 0.1 };
 gui.add(sound, "duration", 0.2, 5);
@@ -26,13 +16,10 @@ function playChord(chord: string) {
   const notes = ChordMap[chord];
 
   // TODO: Stop currently playing sound
+  console.log({ chord, notes });
 
   notes.forEach((note, index) => {
-    sampler.triggerAttackRelease(
-      note,
-      sound.duration,
-      now + index * sound.time,
-    );
+    guitar.triggerAttackRelease(note, sound.duration, now + index * sound.time);
   });
 }
 
