@@ -7,7 +7,7 @@ const guitar = new GuitarNylonOgg().toDestination();
 
 const gui = new dat.GUI();
 
-const sound = { duration: 0.8, time: 0.1 };
+const sound = { duration: 0.8, time: 0.5 };
 gui.add(sound, "duration", 0.2, 5);
 gui.add(sound, "time", 0.2, 1);
 
